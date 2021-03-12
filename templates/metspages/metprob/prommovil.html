@@ -1,0 +1,107 @@
+ {% extends "layout2.html" %}
+
+{% block content %}
+<div class="  demo-1">
+	{% include "header.html" %} 
+	<div class="main clearfix">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Promedio Movil </h5>
+						<div class="card-text">
+							<form class="form-inline" method="POST">
+								<table class="table">
+									{% for field in form %}
+									<tr>
+										<td>{{ field.label }}</td>
+									</tr>
+									<tr>
+										<td>{{ field }}</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td> <input type="submit" value="Resolver" class="btn btn-info form-control">
+										</td>
+										<td></td>
+									</tr>
+								</table>
+							</form>
+<hr>
+{% include "metprobmenu.html" %} 
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Promedio Movil </h5>
+						<p class="card-text">
+              Para sacar el promedio movil usamos la siguiente fómrula:
+      \[ F_{t} = { D_{t-1} + D_{t-2} + D_{t-3} + D_{t-n} \over n } \]
+      Donde \(F_{t}\) es el pronóstico del siguiente periodo, \(D_{t}\) valor observado en el periodo \(t\) y \(n\) el
+      número de periodos
+      a considerar
+      \[\]
+      {% if N != None %}
+      En este caso son promedios de \(3\) y \(4\), con esto sumamos los datos y dividimos para la cantidad de datos
+      sumados:
+      \[ { {{ res1 }} + {{ res2 }} + {{ res3 }} \over {{ 3 }} }= {{ res5 }} \]
+      Y para el promedio cuatro:
+      \[ { {{ res1 }} + {{ res2 }} + {{ res3 }} + {{ res4 }} \over {{ 4 }} }= {{ res6 }} \]
+      Para sacar los errores simplemente restamos el valor actual de ese momento con el promedio sacado:
+      \[ { {{ res3 }} \over {{ res5 }} }= {{ res7 }} \]
+      Y para el error de promedio cuatro:
+      \[ { {{ res4 }} \over {{ res6 }} }= {{ res8 }} \]
+      Y así seguimos hasta llegar al valor que deseamos encontrar sea por un promedio o por el otro.
+
+      {% endif %}
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- parte 2 -->
+		<div class="row">
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de valores aleatorios</h5>
+				  <p class="card-text">
+					{% if N != None %}
+					 
+					{% for table in tables %}
+					{{ table|safe }}
+					{% endfor %}
+					{% endif %}  
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Gráfica de los números aleatorios generados</h5>
+				  <p class="card-text"> 
+					{% if N != None %}
+			 
+					<img src="{{ grafica }}" width="550">
+			
+					{% endif %}
+
+				  </p>
+			 
+				</div>
+			  </div>
+			</div>
+		  </div>
+		<!-- parte 2 2 -->
+	</div>
+</div><!-- /container -->
+{% endblock %}

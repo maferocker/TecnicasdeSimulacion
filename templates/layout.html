@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Técnicas de simulación</title>
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="/static/images/logo1.png"> 
+		<link rel="stylesheet" type="text/css" href="/static/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/component.css" />
+		<script src="/static/js/modernizr.custom.js"></script>
+		<link href="/static/css/bootstrap.min.css" rel="stylesheet" >
+		<link rel="stylesheet" href="/static/css/all.min.css">
+	</head>
+	<body class="container">
+<style>
+.clearfix{
+	margin-top: 10rem;
+}
+</style>
+            
+            {% block content %}
+            {% endblock %}
+
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="/static/js/jquery.dlmenu.js"></script>
+		<script>
+			$(function() {
+				$( '#dl-menu' ).dlmenu();
+			});
+		</script>
+		<script src="/static/js/bootstrap.bundle.min.js"></script>
+	</body>
+	{% include "footer.html" %}
+
+</html>

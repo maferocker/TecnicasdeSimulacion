@@ -1,0 +1,33 @@
+ 
+<style>
+    .bg-pink{background-color:#ddb3b3}
+</style>
+    <nav class="navbar fixed-top navbar-light bg-pink" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><img src="/static/images/logo1.png" alt="" srcset="" style="width: 5rem;"></a>
+          <a class="navbar-brand" href="/static/Manual.pdf"  target="_blank"><i class="fas fa-file fa-x5"></i>  Manual de usuario</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Métodos Aleatorios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index2') }}">Métodos Probabilísticos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index3') }}">Métodos Regresión</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index4') }}">Métodos Simulación</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index5') }}">Modelos de simulación</a>
+              </li>
+            </ul>
+      
+          </div>
+        </div>
+      </nav>

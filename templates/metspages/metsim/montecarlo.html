@@ -1,0 +1,113 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<div class="  demo-1">
+	{% include "header.html" %} 
+	<div class="main clearfix">
+		<div class="row">
+			<div class="col-sm-5">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title"> Montecarlo</h5>
+						<div class="card-text">
+							<form class="form-inline" method="POST">
+								<table class="table">
+									{% for field in form %}
+									<tr>
+										<td>{{ field.label }}</td>
+									</tr>
+									<tr>
+										<td>{{ field }}</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td> <input type="submit" value="Resolver" class="btn btn-info form-control">
+										</td>
+										<td></td>
+									</tr>
+								</table>
+							</form>
+<hr>
+{% include "metcarlos.html" %} 
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-7">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title"> Montecarlo</h5>
+						<p class="card-text">
+
+              El método de Montecarlo abarcan una colección de técnicas que permiten obtener soluciones de problemas matemáticos
+              o
+              físicos por medio de pruebas aleatorias repetidas. Es por esto que no se le puede asignar una fórmula general,
+              sino que se
+              adapta al problema en concreto basandose en los pasos que sigue este método.
+              \[\]
+              {% if N != None %}
+              Para este caso en particular, una vez ingresados los datos sacamos la probabilidad de cada valor, esto se hace
+              sumando
+              todos los valores ingresados primero, para luego dividir cada valor por la suma realizada anteriormente, por
+              ejemplo para el primer dato tenemos:
+              \[ { \sum(datos) \over {{cant}} } = {{suma}} \]
+              \[ { {{vald1}} \over {{suma}} } = {{dfprob}} \]
+              Luego sacamos la \(FPA\) (probabilidad acumulada) y los \(mínimos\) y \(máximos\), donde la \(FPA\) actual va a
+              ser la suma
+              de la probabilidad del dato anterior con la probabilidad del dato actual, mientras que para \(mínimos\) y
+              \(máximos\), el mínimo
+              va a ser la \(FPA\) anterior, y para el máximo la \(FPA\) actual. Todo se puede apreciar mejor en el gráfico.
+              \[\]
+              Por último generamos nuestros números aleatorios por el generador de nuestra preferencia, y buscamos entre que
+              rango se encuentra este número
+              para determinar a que valor corresponde y así generar nuestos datos de la simulación.
+              {% endif %}
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- parte 2 -->
+		<div class="row">
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de probabilidesde mínimas y máximas</h5>
+				  <p class="card-text">
+					{% if N != None %}
+					 
+					{% for table in tables %}
+					{{ table|safe }}
+					{% endfor %}
+					{% endif %}  
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de la simulación</h5>
+				  <p class="card-text"> 
+            {% if N != None %}
+    
+            {% for table in tables2 %}
+            {{ table|safe }}
+            {% endfor %}
+        
+            {% endif %}
+				  </p>
+			 
+				</div>
+			  </div>
+			</div>
+		  </div>
+		<!-- parte 2 2 -->
+	</div>
+</div><!-- /container -->
+{% endblock %}

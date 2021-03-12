@@ -1,0 +1,106 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<div class="  demo-1">
+	{% include "header.html" %} 
+	<div class="main clearfix">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Método cuadrado medio</h5>
+						<div class="card-text">
+							<form class="form-inline" method="POST">
+								<table class="table">
+									{% for field in form %}
+									<tr>
+										<td>{{ field.label }}</td>
+									</tr>
+									<tr>
+										<td>{{ field }}</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td> <input type="submit" value="Resolver" class="btn btn-info form-control">
+										</td>
+										<td></td>
+									</tr>
+								</table>
+							</form>
+<hr>
+{% include "metranmenu.html" %} 
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Método cuadrado medio</h5>
+						<p class="card-text">
+
+							En este método cada número sucesivo se genera tomando los \(n\) dígitos centrales del
+							cuadrado del
+							número anterior de \(n\) dígitos.
+
+							{% if N != None %}
+							Para los datos ingresados, el valor inicial de \({{ res }}\) pasamos a elevarlo al cuadrado
+							\[{{ res }}^2 =
+							{{ res2 }} \] luego tomamos
+							los valores medios de el resultado y los dividimos para 10 elevado a la cantidad de unidades
+							que
+							se ingresaron inicialmente dándonos así el resultado de nuestro número pseudoaleatorio
+							\[ { {{ res3 }} \over 10^{{ res5 }} }= {{ res4 }} \] repetimos el proceso con los números
+							medios que sacamos
+							anteriormente
+							e iteramos la cantidad de veces requeridas.
+
+							{% endif %}
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- parte 2 -->
+		<div class="row">
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de valores aleatorios</h5>
+				  <p class="card-text">
+					{% if N != None %}
+					 
+					{% for table in tables %}
+					{{ table|safe }}
+					{% endfor %}
+					{% endif %}  
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Gráfica de los números aleatorios generados</h5>
+				  <p class="card-text"> 
+					{% if N != None %}
+			 
+					<img src="{{ grafica }}" width="550">
+			
+					{% endif %}
+
+				  </p>
+			 
+				</div>
+			  </div>
+			</div>
+		  </div>
+		<!-- parte 2 2 -->
+	</div>
+</div><!-- /container -->
+{% endblock %}

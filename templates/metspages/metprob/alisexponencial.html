@@ -1,0 +1,105 @@
+ 
+
+<!-- Suavizacion exponencial -->
+
+{% extends "layout2.html" %}
+
+{% block content %}
+<div class="  demo-1">
+	{% include "header.html" %} 
+	<div class="main clearfix">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Suavización exponencial</h5>
+						<div class="card-text">
+							<form class="form-inline" method="POST">
+								<table class="table">
+									{% for field in form %}
+									<tr>
+										<td>{{ field.label }}</td>
+									</tr>
+									<tr>
+										<td>{{ field }}</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td> <input type="submit" value="Resolver" class="btn btn-info form-control">
+										</td>
+										<td></td>
+									</tr>
+								</table>
+							</form>
+<hr>
+{% include "metprobmenu.html" %} 
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Suavización exponencial</h5>
+						<p class="card-text">
+              Para la suavización exponencial se tiene la siguiente fórmula:
+              \[ \propto(Xn-1) + (1-\propto)Sn-1 \]
+              Donde \(\propto\) es la constante de suavización entre 0 y 1, \(Xn-1\) es el valor real de la serie
+              y \(Sn-1\) es el pronóstico de la serie.
+              \[\]
+              {% if N != None %}
+              Para el ejercicio la fórmula quedaría:
+              \[ {{ M }}( {{ res1 }} ) + (1- {{ M }} ){{ res2 }} = {{ res3 }} \]
+              Y así sucesivamente para sacar los siguientes pronósticos, siempres cambiando los valores en la fórmula.
+              Para el error basta con restar el valor de la etapa actual con la suavización hallada:
+              \[{{ res5 }} + {{ res3 }} = {{ res4 }} \]
+        
+              {% endif %}
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- parte 2 -->
+		<div class="row">
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de valores aleatorios</h5>
+				  <p class="card-text">
+					{% if N != None %}
+					
+					{% for table in tables %}
+					{{ table|safe }}
+					{% endfor %}
+					{% endif %}  
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Gráfica de los números aleatorios generados</h5>
+				  <p class="card-text"> 
+					{% if N != None %}
+			 
+					<img src="{{ grafica }}" width="550">
+			
+					{% endif %}
+
+				  </p>
+			 
+				</div>
+			  </div>
+			</div>
+		  </div>
+		<!-- parte 2 2 -->
+	</div>
+</div><!-- /container -->
+{% endblock %}

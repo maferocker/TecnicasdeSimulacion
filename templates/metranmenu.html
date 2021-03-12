@@ -1,0 +1,31 @@
+ 
+
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-pink p-4">
+      <h5 class="text-white h4">
+        <div class="list-group bg-pink">
+          <a  class="list-group-item list-group-item-action bg-pink " aria-current="true" href="{{ url_for('metran_api.cuadrado_medio') }}">Método cuadrado medio</a>
+          <a  class="list-group-item list-group-item-action bg-pink" href="{{ url_for('metran_api.congruencial_aditivo') }}">Método congruencial aditivo</a>
+          <div class=" list-group-item list-group-item-action  dropdown bg-pink">
+            <button class="btn   dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <h4>  Método congruencial <br>multiplicativo</h4>
+            
+            </button> 
+            <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="{{ url_for('metran_api.congruencial_multiplicativo_autogenerado') }}">Autogenerar valores</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('metran_api.congruencial_multiplicativo_30264') }}">generador excel-03 mod 30264</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('metran_api.congruencial_multiplicativo_30323') }}">generador excel-07 mod 30323</a></li>
+            </ul>
+            </div>
+        </div>  
+      </h5>
+     
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-pink text-white ">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>Menu
+      </button>
+    </div>
+  </nav>

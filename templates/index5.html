@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script>function c1(){
+ location.href=("http://127.0.0.1:5000/lineaespera");alert("1")
+}
+function c2() {
+	location.href=("http://127.0.0.1:5000/lineaesperaaditivo");alert("21")
+}
+function c3() {
+	location.href=("http://127.0.0.1:5000/lineaesperamultiplicativo");alert("31")
+}
+</script>
+<div class="container demo-4">
+	{% include "header.html" %}
+	<div class="main clearfix">
+		<div class="card text-center ">
+			<div class="card-header bg-transparent">
+				<h1>Modelos de simulación</h1>
+			</div>
+			<div class="card-body">
+
+				<p class="card-text justify-content-center">Se trata de permitir predecir, comparar y optimizar el
+					comportamiento de sus procesos simulados en un tiempo muy breve sin el coste ni el riesgo de
+					llevarlos a cabo, haciendo posible la representación de los procesos, recursos, productos y
+					servicios en un modelo dinámico. Por lo general estos están enfocados más a los
+					procesos realizados por las empresas.</p>
+				<div class="list-group">
+
+					<div class=" list-group-item list-group-item-action  dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							Modelos de inventario
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+							<li><a class="dropdown-item" href="{{ url_for('modsim_api.inventario_EOQ') }}">Modelo
+									EOQ</a></li>
+							<li><a class="dropdown-item"
+									href="{{ url_for('modsim_api.inventario_general') }}">Simulación del inventario</a>
+							</li>
+							<li><a class="dropdown-item" href="{{ url_for('modsim_api.inventario_empresa') }}">Tabla de
+									inventario para caso real</li> 
+						</ul>
+					</div> 
+					<div class="dropdown" style="display: none;">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+							Método de la transformada inversa
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						  <li><a class="dropdown-item" href="{{ url_for('metsim_api.transformada_inversa_aditivo') }}">Por congruencial aditivo</a></li>
+						  <li><a class="dropdown-item"  href="{{ url_for('metsim_api.transformada_inversa_multiplicativo') }}">Por congruencial multiplicativo</a></li> 
+						</ul>
+					  </div>
+					 
+					<div class="btn-group">
+						<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+							Modelo de líneas de espera
+						</button>
+						<ul class="dropdown-menu dropdown-menu-end">
+						  <li><button  onclick="c1()" class="dropdown-item" type="button">Valores autogenerados</button></li>
+						  <li><button   onclick="c2()" class="dropdown-item" type="button">Por
+							congruencial aditivo</button></li>
+						  <li><button  onclick="c3()" class="dropdown-item" type="button">Por
+							congruencial multiplicativo</button></li>
+						</ul>
+					  </div>
+				</div>
+			 
+				 
+		 
+				 
+					
+			</div>
+
+
+
+		</div>
+	</div><!-- /container -->
+
+	{% endblock %}

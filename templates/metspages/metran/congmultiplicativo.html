@@ -1,0 +1,108 @@
+ {% extends "layout2.html" %}
+
+{% block content %}
+<div class="  demo-1">
+	{% include "header.html" %} 
+	<div class="main clearfix">
+		<div class="row">
+			<div class="col-sm-5">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Método congruencial Multiplicativo</h5>
+						<div class="card-text">
+							<form class="form-inline" method="POST">
+								<table class="table">
+									{% for field in form %}
+									<tr>
+										<td>{{ field.label }}</td>
+									</tr>
+									<tr>
+										<td>{{ field }}</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td> <input type="submit" value="Resolver" class="btn btn-info form-control">
+										</td>
+										<td></td>
+									</tr>
+								</table>
+							</form>
+<hr>
+{% include "metranmenu.html" %} 
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-7">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Método congruencial Multiplicativo</h5>
+						<p class="card-text">
+
+              Tiene como base al algoritmo congruencial lineal pero conlleva una operación menos, la operación principal es la
+              siguiente:
+              \[ X_{i+1} = (aX_{i})mod(m) \]
+        
+              {% if N != None %}
+              Teniendo los datos iniciales se procede a multiplicar la semilla con el multiplicador:
+              \[ ({{ X0 }} * {{ A }}) = {{ res1 }} \]
+              A este se le aplica el módulo que designamos, el cual nos va a dejar solo el residuo de la división realizada por
+              este,
+              con esto habremos descubierto cual es nuestro valor pseudorandómico y al multiplicar por el módulo tendremos
+              nuestra nueva semilla para la siguiente iteración:
+              \[ { {{ res1 }} \over {{ M }} }= {{ res2 }} \qquad {{ res2 }}* {{ M }} = {{ res1 }}\]
+              Esto se puede apreciar de mejor manera en la siguiente iteración como se ve a continuación usando la nueva
+              semilla:
+              \[ ({{ res1 }} * {{ A }}) = {{ res3 }} \qquad { {{ res3 }} \over {{ M }} }= {{ res5 }} = {{ res4 }} \]
+              De ahí solo hay que repetir el proceso las veces necesarias teniendo en cuenta el reemplazar la semilla en cada
+              iteracion.
+        
+              {% endif %}
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- parte 2 -->
+		<div class="row">
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de valores aleatorios</h5>
+				  <p class="card-text">
+					{% if N != None %}
+					 
+					{% for table in tables %}
+					{{ table|safe }}
+					{% endfor %}
+					{% endif %}  
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Gráfica de los números aleatorios generados</h5>
+				  <p class="card-text"> 
+					{% if N != None %}
+			 
+          <img src="{{ grafica }}" width="550">
+			
+					{% endif %}
+
+				  </p>
+			 
+				</div>
+			  </div>
+			</div>
+		  </div>
+		<!-- parte 2 2 -->
+	</div>
+</div><!-- /container -->
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container demo-4">
+	{% include "header.html" %}
+	<div class="main clearfix"> 
+		<div class="card text-center ">
+			<div class="card-header bg-transparent">
+				<h1>Métodos de Simulación</h1>
+			</div>
+			<div class="card-body">
+
+				<p class="card-text justify-content-center">La simulación es el producto de: El estudio del Sistema, la
+					Modelación de los componentes del sistema, la utilización de Técnicas y herramientas
+					estadísticas, números aleatorios y pronósticos para obtener un completo informe de resultados junto
+					con la utilización de un
+					Lenguaje de programación que nos permita realizar el análisis de datos. Esta es una valiosa
+					herramienta que puede para una amplia variedad de
+					problemas prácticos de la via real.</p>
+				<div class="list-group">
+
+					<div class=" list-group-item list-group-item-action  dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							Método Monte Carlo
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+							<li><a class="dropdown-item" href="{{ url_for('metsim_api.montecarlo_aditivo') }}">Por congruencial lineal</a></li>
+							<li><a class="dropdown-item"
+									href="{{ url_for('metsim_api.montecarlo_multiplicativo') }}">Por congruencial
+									multiplicativo</a></li>
+
+						</ul>
+					</div>
+
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+							Método de la transformada inversa
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						  <li><a class="dropdown-item" href="{{ url_for('metsim_api.transformada_inversa_aditivo') }}">Por congruencial aditivo</a></li>
+						  <li><a class="dropdown-item"  href="{{ url_for('metsim_api.transformada_inversa_multiplicativo') }}">Por congruencial multiplicativo</a></li> 
+						</ul>
+					  </div>
+				</div>
+			</div>
+
+
+
+		</div>
+	</div><!-- /container -->
+
+	{% endblock %}

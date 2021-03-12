@@ -1,0 +1,49 @@
+<div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-pink p-4">
+        <h5 class="text-white h4">
+            <div class="list-group bg-pink">
+
+                <div class=" list-group-item list-group-item-action  dropdown bg-pink">
+                    <button class="btn   dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <h4> Modelo de Inventario</h4>
+                    </button>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="{{ url_for('modsim_api.inventario_EOQ') }}">Inventario EOQ</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('modsim_api.inventario_general') }}">Tabla de inventario general</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('modsim_api.inventario_empresa') }}">Tabla de inventario para 'x' Empresa</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="btn-group dropup list-group-item list-group-item-action  bg-pink">
+                    <button type="button" class="btn bg-pink dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="true">
+                        Modelo de linea de espera
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('modsim_api.linea_espera') }}">Valores
+                                autogenerados</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('modsim_api.linea_espera_aditivo') }}">Por
+                                congruencial aditivo</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('modsim_api.linea_espera_multiplicativo') }}">Por
+                                congruencial multiplicativo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </h5>
+
+    </div>
+</div>
+
+
+
+<nav class="navbar navbar-dark bg-pink text-white ">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>Menu
+        </button>
+    </div>
+</nav>

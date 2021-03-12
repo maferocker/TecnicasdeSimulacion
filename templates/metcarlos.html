@@ -1,0 +1,43 @@
+ 
+
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-pink p-4">
+      <h5 class="text-white h4">
+        <div class="list-group bg-pink">
+ 
+          <div class=" list-group-item list-group-item-action  dropdown bg-pink">
+            <button class="btn   dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <h4>  Método Monte Carlo</h4> 
+            </button> 
+            <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item"href="{{ url_for('metsim_api.montecarlo_aditivo') }}">Por congruencial aditivo</a></li>
+              <li><a class="dropdown-item"  href="{{ url_for('metsim_api.montecarlo_multiplicativo') }}">Por congruencial multiplicativo</a></li>
+            
+            </ul>
+            </div>
+
+
+<div class="btn-group dropup list-group-item list-group-item-action  bg-pink">
+  <button type="button" class="btn bg-pink dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
+    Método de la transformada inversa
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{{ url_for('metsim_api.transformada_inversa_aditivo') }}">Por congruencial aditivo</a></li>
+    <li><a class="dropdown-item" href="{{ url_for('metsim_api.transformada_inversa_multiplicativo') }}">Por congruencial multiplicativo</a></li>
+  </ul>
+</div>
+        </div>  
+      </h5>
+     
+    </div>
+  </div>
+
+
+
+  <nav class="navbar navbar-dark bg-pink text-white ">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>Menu
+      </button>
+    </div>
+  </nav>
